@@ -1,0 +1,477 @@
+/* Base Styles */
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    overflow: hidden; /* Welcome page pe scroll band */
+    overflow-x: hidden; /* Horizontal scroll hamesha band */
+    background: #FFC1B4;
+    color: #000;
+}
+
+[data-theme="dark"] body {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.body-scroll-enabled {
+    overflow-y: auto; /* Scroll enable only vertically */
+}
+
+.fancy-heading {
+    font-family: 'Sacramento', cursive;
+    font-size: 2.25rem;
+    color: #000;
+}
+
+[data-theme="dark"] .fancy-heading {
+    color: #fff;
+}
+
+.arabic-heading {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 2rem;
+    color: #000;
+}
+
+[data-theme="dark"] .arabic-heading {
+    color: #fff;
+}
+
+/* Welcome Overlay (Homepage) */
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    transition: opacity 0.5s ease-out;
+    
+}
+
+.welcome-inner {
+    padding: 20px;
+    color: #fff;
+}
+
+.welcome-inner * {
+    color: #fff;
+}
+
+.welcome-image {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.open-btn {
+    height: 35px;
+    background: #fff;
+    color: #000;
+    border-radius: 18px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.open-btn i {
+    font-size: 1rem;
+    color: #000;
+    order: -1;
+}
+
+/* Main Content */
+.content-container {
+    display: none; /* Initially hidden taaki welcome pe scroll na ho */
+    transition: opacity 0.5s ease-in;
+}
+
+/* Navigation Footer */
+.nav-footer {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 1030;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    border-top: 1px solid #000;
+}
+
+[data-theme="dark"] .nav-footer {
+    background: rgba(0, 0, 0, 0.85);
+    border-top: 1px solid #fff;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-option {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+    padding: 12px 0;
+    font-size: 0.7rem;
+    width: 100%;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .nav-link {
+    color: #fff;
+}
+
+.nav-link i {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.nav-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+}
+
+@media (max-width: 576px) {
+    .nav-link {
+        font-size: 0.6rem;
+        padding: 10px 0;
+    }
+    
+    .nav-link i {
+        font-size: 1rem;
+    }
+}
+
+/* Intro Section */
+.intro-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+.intro-text {
+    position: relative;
+    color: #000;
+}
+
+[data-theme="dark"] .intro-text {
+    color: #fff;
+}
+
+.intro-image {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    border: 3px solid #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .intro-image {
+    border: 3px solid #fff;
+}
+
+.intro-date {
+    font-size: 1.25rem;
+}
+
+.calendar-action {
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 8px 20px;
+    color: #000;
+    background: transparent;
+}
+
+[data-theme="dark"] .calendar-action {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.cursor-guide {
+    width: 20px;
+    height: 40px;
+    margin: 20px auto;
+    border-color: #000;
+}
+
+[data-theme="dark"] .cursor-guide {
+    border-color: #fff;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 10px;
+    background: #000;
+    animation: moveDot 2s infinite;
+}
+
+[data-theme="dark"] .cursor-dot {
+    background: #fff;
+}
+
+@keyframes moveDot {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(0); }
+}
+
+.scroll-hint {
+    font-size: 0.875rem;
+    color: #000;
+}
+
+[data-theme="dark"] .scroll-hint {
+    color: #fff;
+}
+
+/* Wave Transition */
+.wave-transition {
+    width: 100%;
+    height: 100px;
+    display: block;
+    color: #000;
+}
+
+[data-theme="dark"] .wave-transition {
+    color: #fff;
+}
+
+/* Couple Section */
+.couple-info {
+    padding: 5px 20px;
+    position: relative;
+}
+
+.couple-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    color: #000;
+}
+
+[data-theme="dark"] .couple-details {
+    color: #fff;
+}
+
+.couple-image {
+    width: 13rem;
+    height: 13rem;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+[data-theme="dark"] .couple-image {
+    border: 3px solid #fff;
+}
+
+.couple-join {
+    font-size: 4.5rem;
+}
+
+.family-detail {
+    font-size: 0.95rem;
+}
+
+.heart-icon {
+    position: absolute;
+    z-index: 1;
+    color: #000;
+}
+
+[data-theme="dark"] .heart-icon {
+    color: #fff;
+}
+
+.heart-right {
+    right: 10%;
+}
+
+.heart-left {
+    left: 10%;
+}
+
+.animate-love {
+    animation: lovePulse 1s infinite;
+}
+
+@keyframes lovePulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+/* Hadith Section */
+.hadith-section {
+    padding: 10px 20px;
+}
+
+.hadith-box {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+
+[data-theme="dark"] .hadith-box {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+}
+
+.hadith-text {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.hadith-link {
+    font-size: 0.95rem;
+    color: #000;
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .hadith-link {
+    color: #fff;
+}
+
+/* Event Section */
+.event-section {
+    padding: 10px 20px;
+}
+
+.timer-box {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    border: 1px solid #000;
+    border-radius: 65px;
+    padding: 10px;
+    margin: 20px 0;
+    color: #000;
+}
+
+[data-theme="dark"] .timer-box {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.timer-unit {
+    text-align: center;
+}
+
+.timer-unit span {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.event-schedule {
+    margin-top: 20px;
+    color: #000;
+}
+
+[data-theme="dark"] .event-schedule {
+    color: #fff;
+}
+
+.event-schedule div {
+    margin: 20px 0;
+}
+
+/* Photo Section */
+.photo-section {
+    padding: 40px 20px 80px;
+}
+
+.photo-gallery {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #000;
+}
+
+[data-theme="dark"] .photo-gallery {
+    color: #fff;
+}
+
+.slide-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Controls */
+.audio-control, .theme-control {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid #000;
+    z-index: 1040;
+    transition: all 0.3s;
+    color: #000;
+}
+
+[data-theme="dark"] .audio-control, [data-theme="dark"] .theme-control {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.audio-control {
+    bottom: 80px;
+    right: 20px;
+}
+
+.theme-control {
+    bottom: 130px;
+    right: 20px;
+}
+
+/* Celebration Effect */
+@keyframes pageReveal {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}

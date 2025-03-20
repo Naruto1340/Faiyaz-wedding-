@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wedding Invitation - Faiyaz & Israt</title>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
+  <!-- Dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-inner text-center">
+            <h1 class="fancy-heading">The Wedding Of</h1>
+            <img src="./images/logo.jpeg" alt="Faiyaz & Israt" class="welcome-image rounded-circle">
+            <h2 class="fancy-heading">Faiyaz & Israt</h2>
+            <p class="guest-info" id="guestInfo"></p>
+            <button class="btn open-btn" onclick="revealInvitation()">Open Invitation <i class="fas fa-envelope-open ms-2"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+<div class="content-container" id="mainContainer">
+
+        <!-- Bottom Navigation -->
+<nav class="nav-footer fixed-bottom rounded-top-4 border-top p-0" id="footerNav">
+  <ul class="nav-items w-100 align-items-center">
+    <li class="nav-option">
+      <a href="#home-area" class="nav-link"><i class="fas fa-house"></i><span>Home</span></a>
+    </li>
+    <li class="nav-option">
+      <a href="#couple-area" class="nav-link"><i class="fas fa-users"></i><span>Couple</span></a>
+    </li>
+    <li class="nav-option">
+      <a href="#date-area" class="nav-link"><i class="fas fa-calendar-check"></i><span>Date</span></a>
+    </li>
+    <li class="nav-option">
+      <a href="#gallery" class="nav-link" onclick="scrollToSection('gallery')"><i class="fas fa-images"></i><span>Gallery</span></a>
+    </li>
+  </ul>
+</nav>
+        <!-- Main Sections -->
+        <main class="scrollable-content" data-bs-spy="scroll" data-bs-target="#footerNav" data-bs-smooth-scroll="true">
+            <!-- Home Section -->
+            <section id="home-area" class="intro-section position-relative overflow-hidden p-0 m-0">
+                <img src="./images/bg.webp" alt="" class="intro-bg">
+                <div class="intro-text text-center p-2">
+                    <h1 class="fancy-heading my-4 pt-2" data-aos="fade-up">Wedding Invitation</h1>
+                    <img src="./images/logo.jpeg" alt="Faiyaz & Israt" class="intro-image rounded-circle" onclick="displayModal(this)" data-aos="zoom-in">
+                    <h2 class="fancy-heading my-4" data-aos="fade-up">Faiyaz & Israt</h2>
+                    <p class="intro-date my-2" data-aos="fade-up">Wednesday, April 25, 2025</p>
+                    <button class="btn calendar-action" onclick="saveToCalendar()" data-aos="fade-up">Add to Calendar <i class="fas fa-calendar-check ms-2"></i></button>
+                    <div class="cursor-guide border border-2 rounded-5 px-2 py-1" data-aos="fade-up">
+                        <div class="cursor-dot rounded-4"></div>
+                    </div>
+                    <p class="scroll-hint" data-aos="fade-up">Scroll Down</p>
+                </div>
+            </section>
+
+            <!-- Wave Transition -->
+            <svg class="wave-transition" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,154.7C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+
+            <!-- Couple Section -->
+            <section id="couple-area" class="couple-info text-center position-relative">
+                <h2 class="arabic-heading py-4" data-aos="fade-up">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h2>
+                <h2 class="fancy-heading py-4" data-aos="fade-up">Peace be upon you, and the mercy of Allah and His blessings</h2>
+                <p class="invite-note px-2" data-aos="fade-up">With all due respect, we invite you to attend our wedding ceremony:</p>
+                <div class="couple-details position-relative">
+                    <div class="groom-info" data-aos="fade-right">
+                        <img src="./images/c.jpeg" alt="Faiyaz" class="couple-image rounded-circle" onclick="displayModal(this)">
+                        <h3 class="fancy-heading mt-3" data-aos="fade-up">Sufi Faiyaz</h3>
+                        <p class="family-detail" data-aos="fade-up">First Son of Mr. Mubarak Hussain</p>
+                    </div>
+                    <div class="position-absolute heart-icon heart-right" style="top: 20%; right: 10%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="opacity-50" data-time="500" data-class="animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                        </svg>
+                    </div>
+                    <div class="position-absolute heart-icon heart-left" style="top: 60%; left: 10%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                        </svg>
+                    </div>
+                    <h2 class="fancy-heading couple-join" data-aos="fade-up">&</h2>
+                    <div class="bride-info" data-aos="fade-left">
+                        <img src="./images/israt.jpeg" alt="Israt" class="couple-image rounded-circle" onclick="displayModal(this)">
+                        <h3 class="fancy-heading mt-3" data-aos="fade-up">Israt Parween</h3>
+                        <p class="family-detail" data-aos="fade-up">Second Daughter of Mr. & Mrs. ...</p>
+                    </div>
+                    <div class="position-absolute heart-icon heart-right" style="top: 80%; right: 15%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wave Transition -->
+            <svg class="wave-transition" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+            </svg>
+
+            <!-- Hadith Section -->
+            <section class="hadith-section text-center">
+                <h2 class="fancy-heading py-4" data-aos="fade-up">Allah Subhanahu Wa Ta'ala has said</h2>
+                <div class="hadith-box mt-4 p-3 shadow rounded-4" data-aos="fade-up" data-aos-duration="2000">
+                    <p class="hadith-text" data-aos="fade-up">And We created everything in pairs so that you may remember (the greatness of Allah).</p>
+                    <a href="https://quran.com/en/51/49" target="_blank" class="hadith-link" data-aos="fade-up">QS. Adh-Dhariyat: 49</a>
+                </div>
+                <div class="hadith-box mt-4 p-3 shadow rounded-4" data-aos="fade-up" data-aos-duration="2000">
+                    <p class="hadith-text" data-aos="fade-up">And indeed, it is He who created the pairs, male and female,</p>
+                    <a href="https://quran.com/en/53/45" target="_blank" class="hadith-link" data-aos="fade-up">QS. An-Najm: 45</a>
+                </div>
+            </section>
+
+            <!-- Wave Transition -->
+            <svg class="wave-transition" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+            </svg>
+
+            <!-- Date Section -->
+            <section id="date-area" class="event-section text-center">
+                <h2 class="fancy-heading py-4" data-aos="fade-up">Happy Moment</h2>
+                <div class="timer-box" id="eventTimer" data-date="2025-04-25 10:00:00" data-aos="fade-up">
+                    <div class="timer-unit"><span id="daysLeft">0</span> Days</div>
+                    <div class="timer-unit"><span id="hoursLeft">0</span> Hours</div>
+                    <div class="timer-unit"><span id="minutesLeft">0</span> Minutes</div>
+                    <div class="timer-unit"><span id="secondsLeft">0</span> Seconds</div>
+                </div>
+                <p class="event-note" data-aos="fade-up">Our wedding events:</p>
+                <div class="position-relative">
+                    <div class="position-absolute heart-icon heart-right" style="top: 20%; right: 10%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="event-schedule overflow-x-hidden">
+                    <div data-aos="fade-right"><h3 class="fancy-heading" data-aos="fade-up">Nikaah Ceremony</h3><p data-aos="fade-up">11:00 PM - Finished</p></div>
+                    <div data-aos="fade-left"><h3 class="fancy-heading" data-aos="fade-up">Reception</h3><p data-aos="fade-up">1:00 PM - Finished</p></div>
+                    <div class="position-relative">
+                        <div class="position-absolute heart-icon heart-left" style="top: 60%; left: 10%;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up"><h3 class="fancy-heading" data-aos="fade-up">Dress Code</h3><p data-aos="fade-up">REHAN</p></div>
+                </div>
+            </section>
+
+            <!-- Wave Transition -->
+            <svg class="wave-transition" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="currentColor" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+            </svg>
+
+            <!-- Gallery Section -->
+         <section class="bg-white-black pb-5 pt-4" id="gallery">
+  <div class="container">
+    <div class="border rounded-5 shadow p-3">
+<h2 class="fancy-heading text-center py-2 m-0" data-aos="fade-up">Gallery</h2>
+      <div class="photo-gallery">
+        <div class="carousel slide mt-4" id="photoSlides1" data-bs-ride="carousel" data-aos="fade-up" data-aos-duration="1500">
+          <div class="carousel-inner rounded-4">
+            <div class="carousel-item active">
+              <img src="../images/a.jpeg" alt="Photo 1" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+            <div class="carousel-item">
+              <img src="../images/b.jpeg" alt="Photo 2" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+            <div class="carousel-item">
+              <img src="../images/c.jpeg" alt="Photo 3" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#photoSlides1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#photoSlides1" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="carousel slide mt-4" id="photoSlides2" data-bs-ride="carousel" data-aos="fade-up" data-aos-duration="1500">
+          <div class="carousel-inner rounded-4">
+            <div class="carousel-item active">
+              <img src="https://picsum.photos/1280/720?random=4" alt="Photo 4" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/1280/720?random=5" alt="Photo 5" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/1280/720?random=6" alt="Photo 6" class="d-block img-fluid slide-image" onclick="undangan.guest.modal(this)">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#photoSlides2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#photoSlides2" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- Music Control -->
+        <button class="audio-control btn btn-float btn-sm rounded-circle position-fixed" onclick="switchAudio()">
+            <i class="fas fa-music"></i>
+        </button>
+
+        <!-- Theme Control -->
+        <button class="theme-control btn btn-float btn-sm rounded-circle position-fixed" onclick="switchTheme()">
+            <i class="fas fa-circle-half-stroke"></i>
+        </button>
+    </div>
+
+    <!-- Image Modal -->
+<!-- Image Modal (Carousel from GitHub Repo) -->
+
+    <!-- Background Audio -->
+    <audio id="weddingTune" loop src="./audio/wedding_music.mp3"></audio>
+</body>
+</html>
